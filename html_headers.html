@@ -1,0 +1,86 @@
+<script src="https://code.iconify.design/iconify-icon/1.0.3/iconify-icon.min.js"></script>
+<script>
+    function compareArrays(a, b){
+        return a instanceof Array && b instanceof Array && 
+            a.length === b.length &&
+            a.every((element, index) => element === b[index]);
+    }
+    function isFunction(functionToCheck) {
+        var getType = {};
+        return functionToCheck && getType.toString.call(functionToCheck) === '[object Function]';
+    }
+
+    function shallowEqual(object1, object2) {
+        object1 = object1 || {};
+        object2 = object2 || {};
+        const keys1 = Object.keys(object1);
+        const keys2 = Object.keys(object2);
+        if (keys1.length !== keys2.length) {
+            return false;
+        }
+        for (let key of keys1) {
+            if (isFunction(object1[key]) && isFunction(object2[key])) {
+                continue;
+            }
+            if (typeof object1[key] !== typeof object2[key]) {
+                return false;
+            }
+            if (compareArrays(object1[key], object2[key])) {
+                continue;
+            }
+            if (object1[key] !== object2[key]) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    function getArray(list) {
+        if (!list) {
+            return [];
+        }
+        return list.get(0, list.length());
+    }
+</script>
+<script type="module" src="https://cdn.jsdelivr.net/npm/citizendev-bubble-utils@latest/dist/index.js"></script>
+<style>
+    .fa.fa-iconify {
+        vertical-align: middle;
+    }
+    .clickable-element {
+        cursor: pointer;
+    }
+</style>
+<script>
+    window.addEventListener("load", (event) => {
+        function process() {
+            const iconifyElements = document.querySelectorAll("div.fa.fa-iconify:not([data-iconify-processed])");
+            const count = iconifyElements.length;
+            for (let i = 0; i < count; i++) {
+                let container = iconifyElements[i];
+                if (!container.firstChild && !container.hasAttribute("data-iconify-processed")) {
+                    try {
+                        container.setAttribute("data-iconify-processed", true);
+                        const classList = [...container.classList];
+                        const iconName = classList.filter(className => className.includes(":"))[0];
+                        const sizeTag = classList.filter(className => className.includes("size-"))[0];
+                        console.log(sizeTag);
+                        const size = sizeTag ? sizeTag.replace("size-", "") : "inherit";
+                        const icon = document.createElement("iconify-icon");
+                        icon.style = `font-size: ${size}`;
+                        icon.icon = iconName;
+                        container.append(icon);
+                    } catch (err) {
+                        console.error(err);
+                    }
+                }
+            }
+        }
+
+        const processDebounced = CDBubbleUtils.debounce(process, 50);
+        
+        const targetNode = document.body;
+        const observer = new MutationObserver(processDebounced);
+        observer.observe(targetNode, { childList: true, subtree: true });
+    });
+</script>

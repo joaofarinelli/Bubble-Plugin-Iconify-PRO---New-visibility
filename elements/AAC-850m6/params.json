@@ -1,0 +1,111 @@
+{
+    "add_hover_pressed": true,
+    "add_is_visible": true,
+    "category": "visual elements",
+    "default_dim": {
+        "height": 50,
+        "width": 50
+    },
+    "display": "Iconify PRO - Icon",
+    "events": {
+        "AAO": {
+            "caption": "clicked",
+            "name": "clicked"
+        }
+    },
+    "fields": {
+        "AAD": {
+            "caption": "Icon",
+            "doc": "Go to https://iconify.design and get your icon in the model: xxx:xxxxx",
+            "editor": "DynamicValue",
+            "name": "icon",
+            "rank": 0,
+            "value": "text"
+        },
+        "AAE": {
+            "caption": "Go to https://iconify.design and get your icon in the model: xxx:xxxxx",
+            "editor": "Label",
+            "name": "info",
+            "rank": 1
+        },
+        "AAF": {
+            "caption": "Color",
+            "default_val": "rgba(0,0,0,1)",
+            "editor": "Color",
+            "in_style": true,
+            "name": "color",
+            "rank": 2
+        },
+        "AAG": {
+            "caption": "Use Font Color",
+            "default_val": false,
+            "doc": "",
+            "editor": "Checkbox",
+            "name": "use_fontcolor",
+            "rank": 3
+        },
+        "AAH": {
+            "caption": "Vertical Flip",
+            "default_val": false,
+            "editor": "Checkbox",
+            "in_style": true,
+            "name": "flipx",
+            "rank": 4
+        },
+        "AAI": {
+            "caption": "Horizontal Flip",
+            "default_val": false,
+            "editor": "Checkbox",
+            "in_style": true,
+            "name": "flipy",
+            "rank": 5
+        },
+        "AAJ": {
+            "caption": "Rotate deg",
+            "default_val": 0,
+            "editor": "StaticNumber",
+            "in_style": true,
+            "name": "rotate",
+            "rank": 6
+        },
+        "AAK": {
+            "caption": "Transition",
+            "default_val": "200ms",
+            "doc": "CSS Transition value for the element",
+            "editor": "StaticText",
+            "in_style": true,
+            "name": "transition",
+            "rank": 7
+        },
+        "AAL": {
+            "caption": "Spin",
+            "default_val": false,
+            "doc": "Make the icon spin",
+            "editor": "Checkbox",
+            "in_style": true,
+            "name": "spin",
+            "rank": 8
+        },
+        "AAM": {
+            "caption": "Element Clickable",
+            "default_val": true,
+            "doc": "Mark this icon as clickable, show a pointer cursor on hover.",
+            "editor": "Checkbox",
+            "in_style": true,
+            "name": "clickable",
+            "rank": 9
+        }
+    },
+    "icon": "ion-android-happy",
+    "property_applications": {
+        "Background": true,
+        "Border": true,
+        "BoxShadow": true,
+        "Font": true,
+        "MinWidth": true,
+        "Padding": true,
+        "resizable": true
+    },
+    "states": {
+    }
+}
